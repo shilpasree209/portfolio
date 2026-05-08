@@ -1,29 +1,60 @@
+import { useState } from 'react';
+
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(open => !open);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div className="app-shell">
       <header className="hero">
         <div className="hero-top">
-          <p className="eyebrow"></p>
-          <nav className="hero-nav">
-            <a className="nav-link" href="#skills">Skills</a>
-            <a className="nav-link" href="#projects">Experience</a>
-            <a className="nav-link" href="#contact">Contact</a>
+          <p className="eyebrow">Portfolio</p>
+
+          <button
+            type="button"
+            className={`menu-toggle ${menuOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <nav className={`hero-nav ${menuOpen ? 'open' : ''}`}>
+            <a className="nav-link" href="#skills" onClick={closeMenu}>Skills</a>
+            <a className="nav-link" href="#projects" onClick={closeMenu}>Experience</a>
+            <a className="nav-link" href="#contact" onClick={closeMenu}>Contact</a>
           </nav>
         </div>
 
-        <div>
+        <div className="hero-copy-wrap">
           <h1>Hello, I’m Shilpa Sreekumar 🧑‍💻</h1>
           <p className="hero-copy">
-            
+            Full-stack engineer building clean, scalable products and polished user experiences for finance and enterprise.
           </p>
         </div>
       </header>
 
       <section id="about" className="section-card">
         <h2>About Me</h2>
-        <p>
-          Python-focused Engineer with over a decade of experience architecting scalable, mission-critical applications within the banking and financial services sector. Expert in building robust Full-Stack applications using Python (Flask) and React, with a specialized focus on Context Engineering and high-precision RAG architectures. Technical lead experienced in bridging the gap between deep-learning backends and seamless user interfaces, including the development of dynamic, high-fidelity Outlook email templates for automated enterprise communications.
-        </p>
+        <div className="experience-card about-card">
+          {/* <p className="experience-role">Profile</p> */}
+          <p>
+            Python-focused Engineer with over a decade of experience architecting scalable, mission-critical applications within the 
+banking and financial services sector. Expert in building robust Full-Stack applications using Python (Flask) and React, with 
+a specialized focus on Context Engineering and high-precision RAG architectures. Technical lead experienced in bridging the 
+gap between deep-learning backends and seamless user interfaces, including the development of dynamic, high-fidelity Outlook 
+email templates for automated enterprise communications.</p>
+          {/* <ul className="about-list">
+            <li>Delivered enterprise-grade systems with strong security and performance focus.</li>
+            <li>Built scalable backend services, modern UIs, and integrated data-driven workflows.</li>
+            <li>Bridged AI, analytics, and user experience for automated financial communications.</li>
+          </ul> */}
+        </div>
       </section>
 
       <section id="skills" className="section-card">
