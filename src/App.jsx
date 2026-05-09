@@ -32,28 +32,40 @@ export default function App() {
         </div>
 
         <div className="hero-copy-wrap">
-          <h1>Hello, I’m Shilpa Sreekumar 🧑‍💻</h1>
+          <div className="hero-avatar-wrap">
+            <svg className="hero-avatar" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor: '#4f46e5', stopOpacity: 1}} />
+                  <stop offset="100%" style={{stopColor: '#9333ea', stopOpacity: 1}} />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="35" r="18" fill="#fbbf24" />
+              <rect x="45" y="56" width="30" height="35" rx="6" fill="url(#avatarGrad)" />
+              <rect x="20" y="60" width="22" height="8" rx="4" fill="#fbbf24" />
+              <rect x="78" y="60" width="22" height="8" rx="4" fill="#fbbf24" />
+              <rect x="32" y="68" width="28" height="18" rx="2" fill="#1f2937" />
+              <rect x="33" y="69" width="26" height="14" rx="1" fill="#4f46e5" opacity="0.8" />
+              <text x="38" y="78" fontSize="6" fill="#fff" fontWeight="bold">&lt; /&gt;</text>
+            </svg>
+          </div>
+          <h1>Hello, I'm Shilpa Sreekumar</h1>
           <p className="hero-copy">
             Full-stack engineer building clean, scalable products and polished user experiences for finance and enterprise.
           </p>
         </div>
       </header>
 
-      <section id="about" className="section-card">
+      <section id="about" className="section-card about-section">
         <h2>About Me</h2>
         <div className="experience-card about-card">
-          {/* <p className="experience-role">Profile</p> */}
+          <div className="about-background-pattern"></div>
           <p>
-            Python-focused Engineer with over a decade of experience architecting scalable, mission-critical applications within the 
-banking and financial services sector. Expert in building robust Full-Stack applications using Python (Flask) and React, with 
-a specialized focus on Context Engineering and high-precision RAG architectures. Technical lead experienced in bridging the 
-gap between deep-learning backends and seamless user interfaces, including the development of dynamic, high-fidelity Outlook 
-email templates for automated enterprise communications.</p>
-          {/* <ul className="about-list">
-            <li>Delivered enterprise-grade systems with strong security and performance focus.</li>
-            <li>Built scalable backend services, modern UIs, and integrated data-driven workflows.</li>
-            <li>Bridged AI, analytics, and user experience for automated financial communications.</li>
-          </ul> */}
+            Python-focused Engineer with over a decade of experience architecting scalable, mission-critical applications within the banking and financial services sector. Expert in building robust Full-Stack applications using Python (Flask) and React, with a specialized focus on Context Engineering and high-precision RAG architectures.
+          </p>
+          <p>
+            Technical lead experienced in bridging the gap between deep-learning backends and seamless user interfaces. Specialized in designing and deploying dynamic, enterprise-grade systems with strong security, performance, and compliance standards—including development of high-fidelity templates and automated workflows for complex financial communications.
+          </p>
         </div>
       </section>
 
@@ -66,6 +78,52 @@ email templates for automated enterprise communications.</p>
           <li>RAG Architectures</li>
           <li>UI & Web Performance</li>
         </ul>
+      </section>
+
+      <section id="deep-dive" className="section-card technical-deep-dive">
+        <h2>Technical Deep Dive</h2>
+        <div className="tech-icons-grid">
+          <div className="tech-icon-card">
+            <div className="tech-icon-wrapper python-icon">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="#3776ab" opacity="0.15" />
+                <text x="50" y="60" fontSize="48" fill="#3776ab" fontWeight="bold" textAnchor="middle">Py</text>
+              </svg>
+            </div>
+            <h3>Python</h3>
+            <p>Flask, Django, ETL, Data Engineering, Backend Optimization</p>
+          </div>
+          <div className="tech-icon-card">
+            <div className="tech-icon-wrapper react-icon">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="#61dafb" opacity="0.15" />
+                <circle cx="50" cy="50" r="6" fill="#61dafb" />
+                <ellipse cx="50" cy="50" rx="16" ry="8" fill="none" stroke="#61dafb" strokeWidth="2" />
+                <ellipse cx="50" cy="50" rx="16" ry="8" fill="none" stroke="#61dafb" strokeWidth="2" transform="rotate(60 50 50)" />
+                <ellipse cx="50" cy="50" rx="16" ry="8" fill="none" stroke="#61dafb" strokeWidth="2" transform="rotate(120 50 50)" />
+              </svg>
+            </div>
+            <h3>React</h3>
+            <p>Modern UI, Component Architecture, Performance, Redux</p>
+          </div>
+          <div className="tech-icon-card">
+            <div className="tech-icon-wrapper rag-icon">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="#9333ea" opacity="0.15" />
+                <circle cx="35" cy="40" r="8" fill="#9333ea" />
+                <circle cx="50" cy="30" r="8" fill="#9333ea" />
+                <circle cx="65" cy="40" r="8" fill="#9333ea" />
+                <circle cx="50" cy="60" r="8" fill="#9333ea" />
+                <line x1="35" y1="40" x2="50" y2="30" stroke="#9333ea" strokeWidth="2" />
+                <line x1="50" y1="30" x2="65" y2="40" stroke="#9333ea" strokeWidth="2" />
+                <line x1="35" y1="40" x2="50" y2="60" stroke="#9333ea" strokeWidth="2" />
+                <line x1="65" y1="40" x2="50" y2="60" stroke="#9333ea" strokeWidth="2" />
+              </svg>
+            </div>
+            <h3>RAG & Context Engineering</h3>
+            <p>Semantic Search, Vector Databases, LLM Integration, Data Architecture</p>
+          </div>
+        </div>
       </section>
 
       <section id="projects" className="section-card">
