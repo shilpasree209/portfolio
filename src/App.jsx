@@ -8,9 +8,11 @@ export default function App() {
 
   return (
     <div className="app-shell">
+
+      {/* ── HERO ─────────────────────────────────────────────── */}
       <header className="hero">
         <div className="hero-top">
-          <p className="eyebrow">Portfolio</p>
+          <p className="eyebrow">Shilpa Sreekumar</p>
 
           <button
             type="button"
@@ -25,9 +27,11 @@ export default function App() {
           </button>
 
           <nav className={`hero-nav ${menuOpen ? 'open' : ''}`}>
-            <a className="nav-link" href="#skills" onClick={closeMenu}>Skills</a>
+            <a className="nav-link" href="#about"    onClick={closeMenu}>About</a>
+            <a className="nav-link" href="#skills"   onClick={closeMenu}>Skills</a>
             <a className="nav-link" href="#projects" onClick={closeMenu}>Experience</a>
-            <a className="nav-link" href="#contact" onClick={closeMenu}>Contact</a>
+            <a className="nav-link" href="#pivot"    onClick={closeMenu}>Building</a>
+            <a className="nav-link" href="#contact"  onClick={closeMenu}>Contact</a>
           </nav>
         </div>
 
@@ -49,186 +53,291 @@ export default function App() {
               <text x="38" y="78" fontSize="6" fill="#fff" fontWeight="bold">&lt; /&gt;</text>
             </svg>
           </div>
-          <h1>Hello, I'm Shilpa Sreekumar</h1>
+
+          {/* Value-driven headline: seniority + niche + trajectory */}
+          <p className="hero-label">Senior Full-Stack Engineer</p>
+          <h1>10 years of Python.<br />Now shipping AI-powered products.</h1>
           <p className="hero-copy">
-            Full-stack engineer building clean, scalable products and polished user experiences for finance and enterprise.
+            Django · FastAPI · React · LLM Orchestration · RAG Architectures
           </p>
+          <p className="hero-location">📍 Houston, TX · Open to remote</p>
+
+          <div className="hero-cta">
+            <a href="#contact" className="btn-primary">Get in touch</a>
+            <a href="#projects" className="btn-ghost">View experience</a>
+          </div>
         </div>
       </header>
 
+      {/* ── ABOUT ─────────────────────────────────────────────── */}
       <section id="about" className="section-card about-section">
         <h2>About Me</h2>
         <div className="experience-card about-card">
           <div className="about-background-pattern"></div>
+
+          {/* Three-act narrative: origin → depth → trajectory */}
           <p>
-            Python-focused Engineer with over a decade of experience architecting scalable, mission-critical applications within the banking and financial services sector. Expert in building robust Full-Stack applications using Python (Flask) and React, with a specialized focus on Context Engineering and high-precision RAG architectures.
+            My engineering career started where mistakes cost real money: financial services.
+            For a decade, I built reconciliation platforms, NLU-powered chatbots, and ETL
+            pipelines at companies like Infosys — systems that had to be correct, fast, and
+            compliant with no margin for error. That environment shaped how I think about
+            every system I design.
           </p>
           <p>
-            Technical lead experienced in bridging the gap between deep-learning backends and seamless user interfaces. Specialized in designing and deploying dynamic, enterprise-grade systems with strong security, performance, and compliance standards—including development of high-fidelity templates and automated workflows for complex financial communications.
+            A few years ago, I noticed every interesting engineering challenge had an AI layer
+            waiting to be unlocked. So I went deep — RAG architectures, vector databases,
+            context engineering, and LLM orchestration. I'm not a data scientist dabbling
+            in software. I'm a senior engineer who treats AI as infrastructure: something to be
+            designed, measured, and maintained like any other production system.
+          </p>
+          <p>
+            I'm also expanding into Ruby on Rails — drawn by its convention-over-configuration
+            philosophy and the strong indie SaaS ecosystem around it. Coming from Django, the
+            mental model transfers cleanly; the fresh perspective is intentional.
+          </p>
+          <p className="about-location-note">
+            Based in Houston, TX. Open to remote roles at SaaS companies where engineering
+            fundamentals and AI literacy both matter.
           </p>
         </div>
       </section>
 
+      {/* ── SKILLS ─────────────────────────────────────────────── */}
       <section id="skills" className="section-card">
         <h2>Skills</h2>
-        <ul className="skill-list">
-          <li>React + Vite</li>
-          <li>Python / Flask</li>
-          <li>Context Engineering</li>
-          <li>RAG Architectures</li>
-          <li>UI & Web Performance</li>
-        </ul>
-      </section>
+        <p className="section-subhead">Honest depth tiers — not a keyword dump.</p>
 
-      <section id="deep-dive" className="section-card technical-deep-dive">
-        <h2>Technical Deep Dive</h2>
-        <div className="tech-icons-grid">
-          <div className="tech-icon-card">
-            <div className="tech-icon-wrapper python-icon">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" fill="#3776ab" opacity="0.15" />
-                <text x="50" y="60" fontSize="48" fill="#3776ab" fontWeight="bold" textAnchor="middle">Py</text>
-              </svg>
+        <div className="skills-tiers">
+
+          <div className="skill-tier expert">
+            <h3 className="tier-label">Expert</h3>
+            <div className="skill-pills">
+              {['Python', 'Django', 'FastAPI', 'Flask', 'React', 'PostgreSQL',
+                'REST APIs', 'ETL / Data Engineering', 'Full-Stack Architecture'].map(s => (
+                <span key={s} className="skill-pill">{s}</span>
+              ))}
             </div>
-            <h3>Python</h3>
-            <p>Flask, Django, ETL, Data Engineering, Backend Optimization</p>
           </div>
-          <div className="tech-icon-card">
-            <div className="tech-icon-wrapper react-icon">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" fill="#61dafb" opacity="0.15" />
-                <circle cx="50" cy="50" r="6" fill="#61dafb" />
-                <ellipse cx="50" cy="50" rx="16" ry="8" fill="none" stroke="#61dafb" strokeWidth="2" />
-                <ellipse cx="50" cy="50" rx="16" ry="8" fill="none" stroke="#61dafb" strokeWidth="2" transform="rotate(60 50 50)" />
-                <ellipse cx="50" cy="50" rx="16" ry="8" fill="none" stroke="#61dafb" strokeWidth="2" transform="rotate(120 50 50)" />
-              </svg>
+
+          <div className="skill-tier proficient">
+            <h3 className="tier-label">Proficient</h3>
+            <div className="skill-pills">
+              {['Ruby on Rails', 'LLM Orchestration', 'RAG Architectures',
+                'Context Engineering', 'React Native', 'Redux'].map(s => (
+                <span key={s} className="skill-pill">{s}</span>
+              ))}
             </div>
-            <h3>React</h3>
-            <p>Modern UI, Component Architecture, Performance, Redux</p>
           </div>
-          <div className="tech-icon-card">
-            <div className="tech-icon-wrapper rag-icon">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" fill="#9333ea" opacity="0.15" />
-                <circle cx="35" cy="40" r="8" fill="#9333ea" />
-                <circle cx="50" cy="30" r="8" fill="#9333ea" />
-                <circle cx="65" cy="40" r="8" fill="#9333ea" />
-                <circle cx="50" cy="60" r="8" fill="#9333ea" />
-                <line x1="35" y1="40" x2="50" y2="30" stroke="#9333ea" strokeWidth="2" />
-                <line x1="50" y1="30" x2="65" y2="40" stroke="#9333ea" strokeWidth="2" />
-                <line x1="35" y1="40" x2="50" y2="60" stroke="#9333ea" strokeWidth="2" />
-                <line x1="65" y1="40" x2="50" y2="60" stroke="#9333ea" strokeWidth="2" />
-              </svg>
+
+          <div className="skill-tier familiar">
+            <h3 className="tier-label">Familiar</h3>
+            <div className="skill-pills">
+              {['PyQt5', 'AG Grid', 'Material UI', 'Grafana', 'RASA NLU',
+                'Vector Databases', 'Pinecone', 'pgvector'].map(s => (
+                <span key={s} className="skill-pill">{s}</span>
+              ))}
             </div>
-            <h3>RAG & Context Engineering</h3>
-            <p>Semantic Search, Vector Databases, LLM Integration, Data Architecture</p>
           </div>
+
         </div>
       </section>
 
+      {/* ── EXPERIENCE ─────────────────────────────────────────── */}
+      {/* Each bullet: [What it does] + [tech stack] + [measurable outcome] */}
       <section id="projects" className="section-card">
         <h2>Experience</h2>
         <div className="project-grid">
+
           <article className="project-card experience-card">
             <h3>Infosys</h3>
-            <div className="experience-copy">
-              <p className="experience-role">Full-Stack Development &amp; Data Visualization</p>
-              <ul className="experience-list">
-                <li>Engineered a data reconciliation tool using Python, React, Redux, and Material UI.</li>
-                <li>Built high-performance, dynamic data tables with AG Grid for advanced filtering, sorting, and pagination.</li>
-              </ul>
+            <p className="experience-role-title">Senior Software Engineer · Banking &amp; Financial Services</p>
 
-              <p className="experience-role">Performance Engineering</p>
-              <ul className="experience-list">
-                <li>Reduced memory overhead by 25% through heap snapshot audits and Lighthouse diagnostics.</li>
-                <li>Improved load speed with lazy loading, query parameter serialization, and microservices API orchestration.</li>
-              </ul>
+            <p className="experience-role">Full-Stack Engineering</p>
+            <ul className="experience-list">
+              <li>
+                Built a financial data reconciliation platform using Python, React, Redux,
+                and AG Grid — delivering advanced filtering, sorting, and pagination across
+                enterprise-scale banking datasets.
+              </li>
+              <li>
+                Cut frontend memory overhead by <strong>25%</strong> through heap snapshot
+                audits and Lighthouse diagnostics; improved load speed via lazy loading
+                and microservices API orchestration.
+              </li>
+            </ul>
 
-              <p className="experience-role">Conversational AI (NLU)</p>
-              <ul className="experience-list">
-                <li>Built an intelligent chatbot using the RASA framework.</li>
-                <li>Designed 40+ intents with 95% accuracy for natural language data queries.</li>
-              </ul>
+            <p className="experience-role">Conversational AI</p>
+            <ul className="experience-list">
+              <li>
+                Engineered a natural-language query interface for financial data using the
+                RASA NLU framework — 40+ intents trained to <strong>95% classification
+                accuracy</strong> in production.
+              </li>
+            </ul>
 
-              <p className="experience-role">Monitoring &amp; Compliance</p>
-              <ul className="experience-list">
-                <li>Maintained system health with Grafana real-time monitoring.</li>
-                <li>Created 40+ compliant email templates for financial client communications.</li>
-              </ul>
-            </div>
+            <p className="experience-role">Compliance &amp; Monitoring</p>
+            <ul className="experience-list">
+              <li>
+                Delivered 40+ compliant email templates for regulated financial client
+                communications; maintained system health with Grafana real-time dashboards.
+              </li>
+            </ul>
           </article>
+
           <article className="project-card experience-card">
             <h3>TimeClick Software</h3>
-            <div className="experience-copy">
-              <p className="experience-role">Product Growth & Reach</p>
-              <ul className="experience-list">
-                <li>Expanded market presence by 20% with cross-platform mobile applications using React Native and Python.</li>
-                <li>Boosted customer satisfaction by 15% through Python-led feature improvements and cross-functional coordination.</li>
-              </ul>
+            <p className="experience-role-title">Full-Stack Engineer · SaaS / Time Tracking</p>
 
-              <p className="experience-role">UI/UX Optimization</p>
-              <ul className="experience-list">
-                <li>Designed and launched intuitive desktop interfaces using PyQt5.</li>
-                <li>Improved user experience metrics by 25% for time-tracking software.</li>
-              </ul>
+            <p className="experience-role">Product Growth</p>
+            <ul className="experience-list">
+              <li>
+                Built cross-platform mobile apps using React Native and Python, expanding
+                market presence by <strong>20%</strong> across iOS and Android.
+              </li>
+              <li>
+                Drove a <strong>15% increase in customer satisfaction</strong> through
+                Python-led feature improvements and cross-functional product coordination.
+              </li>
+            </ul>
 
-              <p className="experience-role">Stakeholder Alignment & Integration</p>
-              <ul className="experience-list">
-                <li>Translated business requirements into seamless deployments aligned with core objectives.</li>
-                <li>Enhanced product competitiveness by integrating advanced third-party APIs and new features.</li>
-              </ul>
-            </div>
+            <p className="experience-role">Desktop UI / UX</p>
+            <ul className="experience-list">
+              <li>
+                Designed and shipped PyQt5 desktop interfaces for time-tracking software,
+                improving measured UX metrics by <strong>25%</strong>.
+              </li>
+              <li>
+                Integrated third-party APIs and aligned engineering deliverables with
+                product roadmap, shipping on schedule across multiple release cycles.
+              </li>
+            </ul>
           </article>
+
           <article className="project-card experience-card">
             <h3>Tech Delegates</h3>
-            <div className="experience-copy">
-              <p className="experience-role">Backend Engineering & Optimization</p>
-              <ul className="experience-list">
-                <li>Developed and managed robust APIs using Django and Flask to improve processing speed.</li>
-                <li>Refactored legacy codebases using DRY principles to lower technical debt and reduce duplication.</li>
-              </ul>
+            <p className="experience-role-title">Backend Engineer · Data &amp; Systems</p>
 
-              <p className="experience-role">Data Engineering & ETL</p>
-              <ul className="experience-list">
-                <li>Designed ETL jobs to consolidate REST API data into PostgreSQL staging databases.</li>
-                <li>Authored advanced MySQL queries and leveraged Django ORM for efficient data management.</li>
-              </ul>
+            <p className="experience-role">Backend &amp; API Engineering</p>
+            <ul className="experience-list">
+              <li>
+                Built and maintained production REST APIs using Django and Flask; refactored
+                legacy codebases using DRY principles to measurably reduce duplication
+                and ongoing maintenance cost.
+              </li>
+            </ul>
 
-              <p className="experience-role">Full-Stack & Desktop Development</p>
-              <ul className="experience-list">
-                <li>Built interactive PyQt data management interfaces with seamless CRUD support.</li>
-                <li>Delivered polished desktop UI features for internal and customer-facing workflows.</li>
-              </ul>
+            <p className="experience-role">Data Engineering</p>
+            <ul className="experience-list">
+              <li>
+                Designed ETL pipelines to consolidate REST API data into PostgreSQL staging
+                databases using Django ORM and raw MySQL — improving downstream data
+                reliability for reporting workflows.
+              </li>
+            </ul>
 
-              <p className="experience-role">Process Leadership & Agile Execution</p>
-              <ul className="experience-list">
-                <li>Acted as a bridge between clients and engineering teams to translate requirements into deployments.</li>
-                <li>Maintained high reliability by troubleshooting and patching critical application issues.</li>
-              </ul>
-            </div>
+            <p className="experience-role">Desktop Development</p>
+            <ul className="experience-list">
+              <li>
+                Built PyQt5 data management interfaces with full CRUD support for both
+                internal tooling and customer-facing desktop workflows.
+              </li>
+            </ul>
           </article>
+
         </div>
       </section>
 
-      <section id="contact" className="section-card">
-        <h2>Contact Me</h2>
-        <div className="contact-info">
-          <div className="contact-item">
-            <span className="contact-icon">🧑‍💻</span>
-            <div className="contact-text">
-              <strong>Name</strong>
-              <p>Shilpa Sreekumar</p>
-            </div>
+      {/* ── CURRENTLY BUILDING ─────────────────────────────────── */}
+      {/* Frames the Rails + AI pivot as intentional, not remedial */}
+      <section id="pivot" className="section-card pivot-section">
+        <h2>Currently Building</h2>
+        <p className="section-subhead">
+          Senior engineers pick up new tools deliberately. Here's what I'm focused on now.
+        </p>
+        <div className="pivot-grid">
+
+          <div className="pivot-card">
+            <div className="pivot-icon">🛤️</div>
+            <h3>Ruby on Rails</h3>
+            <p>
+              Working through Rails' convention-over-configuration philosophy coming from
+              a decade of Django. The mental model transfers; the opinionated structure
+              aligns with how I think about application architecture. Focused on the
+              full-stack Rails workflow and the indie SaaS patterns built around it.
+            </p>
           </div>
+
+          <div className="pivot-card">
+            <div className="pivot-icon">🔍</div>
+            <h3>Production RAG Pipelines</h3>
+            <p>
+              Building retrieval-augmented generation systems with pgvector and Pinecone,
+              using the OpenAI and Anthropic APIs. Focused on retrieval precision, latency
+              budgets, and re-ranking strategies that hold up under real query distributions —
+              not just demos.
+            </p>
+          </div>
+
+          <div className="pivot-card">
+            <div className="pivot-icon">🧠</div>
+            <h3>Context Engineering &amp; Agent Orchestration</h3>
+            <p>
+              Designing multi-step prompt chains, tool-use patterns, and agent workflows
+              for complex tasks. Treating context as a first-class engineering problem:
+              what to include, what to compress, and how to structure information so
+              models reason correctly.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── CONTACT ────────────────────────────────────────────── */}
+      <section id="contact" className="section-card">
+        <h2>Let's Talk</h2>
+        <p className="section-subhead">
+          Open to senior full-stack and AI engineering roles — remote preferred,
+          Houston-local welcome.
+        </p>
+        <div className="contact-info">
           <div className="contact-item">
             <span className="contact-icon">📧</span>
             <div className="contact-text">
               <strong>Email</strong>
-              <p>shilpasree209@gmail.com</p>
+              <a href="mailto:shilpasree209@gmail.com" className="contact-link">
+                shilpasree209@gmail.com
+              </a>
+            </div>
+          </div>
+          <div className="contact-item">
+            <span className="contact-icon">📍</span>
+            <div className="contact-text">
+              <strong>Location</strong>
+              <p>Houston, TX · Open to remote</p>
+            </div>
+          </div>
+          {/* Add your LinkedIn and GitHub URLs below */}
+          <div className="contact-item">
+            <span className="contact-icon">💼</span>
+            <div className="contact-text">
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/shilpa-sreekumar-081125200/" className="contact-link" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/shilpa-sreekumar
+              </a>
+            </div>
+          </div>
+          <div className="contact-item">
+            <span className="contact-icon">🐙</span>
+            <div className="contact-text">
+              <strong>GitHub</strong>
+              <a href="https://github.com/shilpasree209" className="contact-link" target="_blank" rel="noopener noreferrer">
+                github.com/shilpasree209
+              </a>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }
