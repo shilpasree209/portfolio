@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(open => !open);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    fetch('/api/notify-visit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: window.location.pathname }),
+      keepalive: true,
+    }).catch(() => {});
+  }, []);
 
   return (
     <div className="app-shell">
@@ -55,12 +64,12 @@ export default function App() {
           </div>
 
           {/* Value-driven headline: seniority + niche + trajectory */}
-          <p className="hero-label">Senior Full-Stack Engineer</p>
-          <h1>10 years of Python.<br />Now shipping AI-powered products.</h1>
+          <p className="hero-label">Software Engineer</p>
+          <h1>10 years of Python Engineering</h1>
           <p className="hero-copy">
-            Django · FastAPI · React · LLM Orchestration · RAG Architectures
+            Flask · Django · FastAPI · Streamlit · AI Orchestration · RAG Architectures  
           </p>
-          <p className="hero-location">📍 Houston, TX · Open to remote</p>
+          <p className="hero-location">📍 Katy, Texas, USA </p>
 
           <div className="hero-cta">
             <a href="#contact" className="btn-primary">Get in touch</a>
@@ -77,35 +86,23 @@ export default function App() {
 
           {/* Three-act narrative: origin → depth → trajectory */}
           <p>
-            My engineering career started where mistakes cost real money: financial services.
-            For a decade, I built reconciliation platforms, NLU-powered chatbots, and ETL
-            pipelines at companies like Infosys — systems that had to be correct, fast, and
-            compliant with no margin for error. That environment shaped how I think about
-            every system I design.
+            Senior Software Engineer with 10+ years of experience building scalable, 
+            mission-critical systems in banking and financial services. Expert in Python 
+            full-stack development (Flask, FastAPI, Django, Streamlit) and React.
+            Proven track record designing high-availability REST APIs and delivering measurable performance 
+            improvements. Experienced with cloud-native deployments on AWS using Docker and Kubernetes, 
+            and skilled in integrating large language models into production environments using LangChain and 
+            LangGraph.
           </p>
-          <p>
-            A few years ago, I noticed every interesting engineering challenge had an AI layer
-            waiting to be unlocked. So I went deep — RAG architectures, vector databases,
-            context engineering, and LLM orchestration. I'm not a data scientist dabbling
-            in software. I'm a senior engineer who treats AI as infrastructure: something to be
-            designed, measured, and maintained like any other production system.
-          </p>
-          <p>
-            I'm also expanding into Ruby on Rails — drawn by its convention-over-configuration
-            philosophy and the strong indie SaaS ecosystem around it. Coming from Django, the
-            mental model transfers cleanly; the fresh perspective is intentional.
-          </p>
-          <p className="about-location-note">
-            Based in Houston, TX. Open to remote roles at SaaS companies where engineering
-            fundamentals and AI literacy both matter.
-          </p>
+          
+          
         </div>
       </section>
 
       {/* ── SKILLS ─────────────────────────────────────────────── */}
       <section id="skills" className="section-card">
         <h2>Skills</h2>
-        <p className="section-subhead">Honest depth tiers — not a keyword dump.</p>
+        {/* <p className="section-subhead">Honest depth tiers — not a keyword dump.</p> */}
 
         <div className="skills-tiers">
 
@@ -122,8 +119,8 @@ export default function App() {
           <div className="skill-tier proficient">
             <h3 className="tier-label">Proficient</h3>
             <div className="skill-pills">
-              {['Ruby on Rails', 'LLM Orchestration', 'RAG Architectures',
-                'Context Engineering', 'React Native', 'Redux'].map(s => (
+              {['Docker', 'Kubernetes', 'LLM Orchestration', 'RAG Architectures',
+                'Context Engineering', 'React Native', 'Redux','AWS'].map(s => (
                 <span key={s} className="skill-pill">{s}</span>
               ))}
             </div>
@@ -133,7 +130,7 @@ export default function App() {
             <h3 className="tier-label">Familiar</h3>
             <div className="skill-pills">
               {['PyQt5', 'AG Grid', 'Material UI', 'Grafana', 'RASA NLU',
-                'Vector Databases', 'Pinecone', 'pgvector'].map(s => (
+                'Vector Databases', 'Pinecone', 'pgvector','PyTorch','Cohere','LangChain', 'LangGraph'].map(s => (
                 <span key={s} className="skill-pill">{s}</span>
               ))}
             </div>
@@ -257,15 +254,31 @@ export default function App() {
         <div className="pivot-grid">
 
           <div className="pivot-card">
-            <div className="pivot-icon">🛤️</div>
-            <h3>Ruby on Rails</h3>
-            <p>
-              Working through Rails' convention-over-configuration philosophy coming from
-              a decade of Django. The mental model transfers; the opinionated structure
-              aligns with how I think about application architecture. Focused on the
-              full-stack Rails workflow and the indie SaaS patterns built around it.
-            </p>
+            <div className="pivot-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#EE4C2C" d="M16.5 3.75l-.88 2.01L14.7 3.8 12.3 2l-.12 2.37L10 6l3.25 3.25-.25 2.75L15 10l3.5-3.25L16.5 3.75z"/>
+              <path fill="#EE4C2C" d="M12 0L9.8 1.8l2.2 2.2L12 0zm.08 6.82a6.5 6.5 0 1 0 5.48 5.48l2.12 2.12a9.5 9.5 0 1 1-7.6-7.6l.001.001z"/>
+            </svg>
           </div>
+          <h3>PyTorch</h3>
+          <p>
+            Expanding my technical skill set into deep learning by mastering PyTorch, 
+            an open-source framework renowned for its Python-native syntax and dynamic 
+            computation graphs. I am leveraging its tensor operations and neural network 
+            building blocks to construct, train, and scale modern machine learning solutions.
+          </p>
+        </div>
+
+          {/* <div className="pivot-card">
+            <div className="pivot-icon">🛤️</div>
+            <h3>PyTorch</h3>
+            <p>
+              Expanding my technical skill set into deep learning by mastering PyTorch, 
+              an open-source framework renowned for its Python-native syntax and dynamic 
+              computation graphs. I am leveraging its tensor operations and neural network 
+              building blocks to construct, train, and scale modern machine learning solutions.
+            </p>
+          </div> */}
 
           <div className="pivot-card">
             <div className="pivot-icon">🔍</div>
@@ -296,8 +309,7 @@ export default function App() {
       <section id="contact" className="section-card">
         <h2>Let's Talk</h2>
         <p className="section-subhead">
-          Open to senior full-stack and AI engineering roles — remote preferred,
-          Houston-local welcome.
+          Open to senior full-stack, AI engineering and backend engineering roles.
         </p>
         <div className="contact-info">
           <div className="contact-item">
@@ -313,7 +325,7 @@ export default function App() {
             <span className="contact-icon">📍</span>
             <div className="contact-text">
               <strong>Location</strong>
-              <p>Houston, TX · Open to remote</p>
+              <p>Katy, Texas, USA </p>
             </div>
           </div>
           {/* Add your LinkedIn and GitHub URLs below */}
